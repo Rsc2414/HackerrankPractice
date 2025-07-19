@@ -1,5 +1,6 @@
 -- # Problem: https://www.hackerrank.com/challenges/salary-of-employees/problem
 -- # Score: 10
+-- # By @Rsc2414
 
 
 SELECT Name
