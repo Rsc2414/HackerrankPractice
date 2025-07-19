@@ -1,9 +1,25 @@
-# Problem: https://www.hackerrank.com/challenges/no-idea/problem
-# Score: 50
-
-
+#By @Rsc2414
+# Read the input but ignore the first line (not needed here)
 _ = input()
-array = input().split()
-like = set(input().split())
-dislike = set(input().split())
-print(sum((i in like) - (i in dislike) for i in array))
+
+# Read the array of elements
+elements = input().split()
+
+# Read the set of elements you like
+liked_elements = set(input().split())
+
+# Read the set of elements you dislike
+disliked_elements = set(input().split())
+
+# Initialize happiness score
+happiness = 0
+
+# Go through each element in the array
+for item in elements:
+    if item in liked_elements:
+        happiness += 1  # Add 1 if it's in the liked set
+    elif item in disliked_elements:
+        happiness -= 1  # Subtract 1 if it's in the disliked set
+
+# Print the final happiness score
+print(happiness)
