@@ -1,22 +1,35 @@
 # Problem: https://www.hackerrank.com/challenges/pairs/problem
 # Score: 50
 
-
-# use two-pointers approach on a sorted array
+# Read input: n = number of elements, value = target difference
 n, value = map(int, input().split())
-points = sorted(list(map(int, input().split())))
 
-ans = 0
-i = 0
-j = 1
+# Read and sort the array
+points = sorted(map(int, input().split()))
 
+# Initialize two pointers
+i = 0  # First pointer
+j = 1  # Second pointer
+ans = 0  # Count of valid pairs
+
+# Loop through the array
 while j < n:
-    if points[j] - points[i] == value:
+    diff = points[j] - points[i]  # Calculate difference
+
+    if diff == value:
+        # Found a valid pair
         ans += 1
+        j += 1  # Move j to check next pair
+    elif diff < value:
+        # Difference too small, move j forward
         j += 1
-    elif points[j] - points[i] > value:
+    else:
+        # Difference too large, move i forward
         i += 1
-    elif points[j] - points[i] < value:
+
+    # Ensure i is always less than j
+    if i == j:
         j += 1
 
+# Output the answer
 print(ans)
